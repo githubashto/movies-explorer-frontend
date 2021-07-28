@@ -1,10 +1,13 @@
 import './Header.css';
 import React from 'react';
+import logo from '../../images/logo.svg';
+import Navigation from '../Navigation/Navigation.js';
 
 function Header() {
   return (
-    <header>
-
+    <header className="header">
+        <img src={logo} alt="Movies" className="logo" />
+        <Navigation />
     </header>
   );
 }
