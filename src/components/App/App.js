@@ -1,7 +1,6 @@
-import logo from '../../logo.svg';
 import './App.css';
 import React from 'react';
-import { Switch, Route, } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';

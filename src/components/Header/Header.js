@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Navigation.js';
 function Header() {
   return (
     <header className="header">
-        <img src={logo} alt="Movies" className="logo" />
+        <img src={logo} alt="Movies Explorer" className="logo" />
         <Navigation />
     </header>
   );
