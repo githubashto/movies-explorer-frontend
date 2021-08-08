@@ -22,15 +22,15 @@ function App() {
       </Route>
 
       <Route path="/movies">
-        <Movies loggedIn={loggedIn} />
+        <Movies loggedIn="true" />
       </Route>
 
       <Route path="/saved-movies">
-        <SavedMovies loggedIn={loggedIn} />
+        <SavedMovies loggedIn="true" />
       </Route>
 
       <Route path="/profile">
-        <Profile loggedIn={loggedIn} />
+        <Profile loggedIn="true" />
       </Route>
 
       <Route path="/">

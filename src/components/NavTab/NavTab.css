@@ -4,7 +4,22 @@
   max-width: 1280px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  background-color: #000;
+  gap: 40px;
+  position:absolute;
+  bottom:0;
 }
 
+.navtab__link {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-decoration-line: underline;
+  color: #fff;
+ }

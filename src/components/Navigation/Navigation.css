@@ -28,20 +28,16 @@
   align-items: center;
 }
 
-.nav__link_movies {
-  font-weight: 500;
-}
-
-.nav__link_signup {
-  margin-left: 30px;
-  font-weight: 500;
+.nav__link_color_white {
   color: #fff;
-
 }
 
-.nav__link_signin {
-  margin-left: 30px;
+.nav__link_weight_bold {
   font-weight: 500;
+}
+
+.nav__link_bg_btn {
+  margin-left: 30px;
   background-color: #2be080;
   padding: 8px 20px;
 }

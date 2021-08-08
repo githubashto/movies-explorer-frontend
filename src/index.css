@@ -1,2 +1,8 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts.css);
+
+.root {
+    max-width: 1280px;
+    width: 100vw;
+    margin: auto;
+}

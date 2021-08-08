@@ -1,13 +1,13 @@
 .header {
-  margin: auto;
   height: 74px;
-  width: 100vw;
+  width: 100%;
   max-width: 1280px;
   position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
 }
 
 .logo {

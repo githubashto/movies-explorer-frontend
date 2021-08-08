@@ -15,7 +15,7 @@ function Main(props) {
   return (
     <>
     <Header>
-      <Navigation loggedIn={loggedIn} />
+      <Navigation loggedIn={loggedIn} darkTheme="true" />
     </Header>
 
     <main>
