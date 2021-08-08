@@ -20,6 +20,7 @@
   line-height: 16px;
   display: flex;
   align-items: center;
-  text-decoration-line: underline;
+  text-decoration-line: none;
+  border-bottom: 1px solid currentColor;
   color: #fff;
  }
