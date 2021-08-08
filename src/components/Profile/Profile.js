@@ -4,9 +4,11 @@ import Header from '../Header/Header';
 
 function Profile() {
   return (
-    <main>
-      <Header />
-    </main>
+    <>
+    <Header />
+
+    <main className="profile" />
+    </>
   );
 }
 

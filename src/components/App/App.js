@@ -8,37 +8,36 @@ import Register  from '../Register/Register';
 import Login from '../Login/Login';
 import Profile  from '../Profile/Profile';
 
-
 function App() {
+  const [loggedIn, setLoggedIn] = React.useState(false);
+
   return (
-    <div className="root">
-      <Switch>
-            <Route path="/signup">
-              <Register />
-            </Route>
+    <Switch>
+      <Route path="/signup">
+        <Register />
+      </Route>
 
-            <Route path="/signin">
-              <Login />
-            </Route>
+      <Route path="/signin">
+        <Login />
+      </Route>
 
-            <Route path="/movies">
-              <Movies />
-            </Route>
+      <Route path="/movies">
+        <Movies loggedIn={loggedIn} />
+      </Route>
 
-            <Route path="/saved-movies">
-              <SavedMovies />
-            </Route>
+      <Route path="/saved-movies">
+        <SavedMovies loggedIn={loggedIn} />
+      </Route>
 
-            <Route path="/profile">
-              <Profile />
-            </Route>
+      <Route path="/profile">
+        <Profile loggedIn={loggedIn} />
+      </Route>
 
-            <Route path="/">
-              <Main />
-            </Route>
+      <Route path="/">
+        <Main loggedIn={loggedIn} />
+      </Route>
 
-          </Switch>
-    </div>
+    </Switch>
   );
 }
 
