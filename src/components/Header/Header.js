@@ -7,7 +7,7 @@ function Header(props) {
   const {children} = props;
 
   return (
-    <header className="header">
+    <header className="header block">
       <NavLink to="/" className="nav__link nav__link_movies">
         <img src={logo} alt="Movies Explorer" className="logo" />
       </NavLink>

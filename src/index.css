@@ -6,3 +6,13 @@
     width: 100vw;
     margin: auto;
 }
+
+.block {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+}
+
+.section {
+    height: 100vh;
+}
