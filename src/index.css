@@ -11,9 +11,13 @@
     width: 100%;
     max-width: 1280px;
     display: flex;
+    flex-direction: row;
 }
 
 .section {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -34,13 +38,4 @@
 
 .section__wide-element {
     width: calc(100% - 70px*2);
-}
-
-.section__text {
-    font-family: 'Inter', Arial, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color: #000;
 }

@@ -14,6 +14,17 @@
     margin: 90px auto 26px;
 }
 
+.techs__text {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000;
+  max-width: 460px;
+  text-align: center;
+}
+
 .techs__list {
     margin: 100px auto;
     list-style-type: none;
