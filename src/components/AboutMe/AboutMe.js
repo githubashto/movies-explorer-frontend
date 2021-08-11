@@ -12,21 +12,21 @@ function AboutMe() {
           <p className="aboutme__subtitle">Фронтенд-разработчик, 37 лет</p>
           <p className="aboutme__text">Я родился в Шверине, живу в Иркутске, закончил восточный факультет БГУ.
 Я люблю слушать музыку, а ещё увлекаюсь чтением. Недавно начал кодить. С 2015 года работал асессором в компании «Яндекс».</p>
-          <div className="aboutme__social">
+          <ul className="aboutme__social">
             <a className="aboutme__social-link" href="https://www.facebook.com/nikolay.astakhayev">Facebook</a>
             <a className="aboutme__social-link" href="https://github.com/githubashto">Github</a>
-          </div>
+          </ul>
         </div>
       <img className="aboutme__portrait" src={portrait} alt="Николай Астахаев" />
       </article>
 
       <div className="aboutme__portfolio section__wide-element">
         <h4 className="aboutme__portfolio-title">Портфолио</h4>
-        <div className="aboutme__links">
+        <ul className="aboutme__links">
           <a className="aboutme__link" href="https://github.com/githubashto/how-to-learn"><span className="aboutme__linktext">Статичный сайт</span><span className="aboutme__linkarrow">↗</span></a>
           <a className="aboutme__link" href="https://githubashto.github.io/russian-travel/"><span className="aboutme__linktext">Адаптивный сайт</span><span className="aboutme__linkarrow">↗</span></a>
           <a className="aboutme__link" href="https://nutag.nomoredomains.club/"><span className="aboutme__linktext">Одностраничное приложение</span><span className="aboutme__linkarrow">↗</span></a>
-        </div>
+        </ul>
       </div>
 
     </section>

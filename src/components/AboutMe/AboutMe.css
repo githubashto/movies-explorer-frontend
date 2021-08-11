@@ -49,6 +49,7 @@
 .aboutme__social {
   position: absolute;
   bottom: 0;
+  padding: 0;
 }
 
 .aboutme__social-link {
@@ -84,6 +85,7 @@
 .aboutme__links {
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
 
