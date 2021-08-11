@@ -1,6 +1,7 @@
 import './AboutMe.css';
 import React from 'react';
 import portrait from '../../images/portrait.png';
+import Portfolio from '../Portfolio/Portfolio'
 
 function AboutMe() {
   return (
@@ -20,15 +21,7 @@ function AboutMe() {
       <img className="aboutme__portrait" src={portrait} alt="Николай Астахаев" />
       </article>
 
-      <div className="aboutme__portfolio section__wide-element">
-        <h4 className="aboutme__portfolio-title">Портфолио</h4>
-        <ul className="aboutme__links">
-          <a className="aboutme__link" href="https://github.com/githubashto/how-to-learn"><span className="aboutme__linktext">Статичный сайт</span><span className="aboutme__linkarrow">↗</span></a>
-          <a className="aboutme__link" href="https://githubashto.github.io/russian-travel/"><span className="aboutme__linktext">Адаптивный сайт</span><span className="aboutme__linkarrow">↗</span></a>
-          <a className="aboutme__link" href="https://nutag.nomoredomains.club/"><span className="aboutme__linktext">Одностраничное приложение</span><span className="aboutme__linkarrow">↗</span></a>
-        </ul>
-      </div>
-
+      <Portfolio />
     </section>
   );
 }

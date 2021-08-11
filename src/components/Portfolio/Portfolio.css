@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+.portfolio {
+  margin: 101px auto 125px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.portfolio__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  color: #a0a0a0;
+  mix-blend-mode: normal;
+  margin: 0 auto 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.portfolio__links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.portfolio__link {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.portfolio__link:not(:last-child) {
+  margin-bottom: 19px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.portfolio__linktext {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+
+.portfolio__linkarrow {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 60px;
+  letter-spacing: -0.04em;
+  color: #000;
 }
