@@ -26,7 +26,7 @@ function Movies(props) {
         <SearchForm />
         {isLoading
         ? <Preloader />
-        : <MoviesCardList />
+        : <MoviesCardList saved="false" />
         }
       </section>
     </main>

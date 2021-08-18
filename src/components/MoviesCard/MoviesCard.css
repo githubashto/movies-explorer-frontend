@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+.card {
+  max-width: 270px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card__image {
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card__caption {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 14px 0 13px 0;
+  border-bottom: 1px solid #e8e8e8;
 }
 
-.App-link {
-  color: #61dafb;
+.card__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card__like {
+  background-image: url(../../images/like.svg);
+  min-height: 24px;
+  max-height: 24px;
+  min-width: 24px;
+  padding: 0;
+  border: 0;
+}
+
+.card__like_active {
+  background-image: url(../../images/liked.svg);
+}
+
+.card__duration {
+  margin: 6px 0 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #a0a0a0;
 }
