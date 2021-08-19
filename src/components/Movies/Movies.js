@@ -9,12 +9,13 @@ import Footer from '../Footer/Footer';
 
 function Movies(props) {
   const {loggedIn} = props;
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
-  // React.useEffect(() => {
-  //   setIsLoading(true);
-  // }, []);
-
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
   return (
     <>
     <Header>

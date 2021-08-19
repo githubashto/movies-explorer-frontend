@@ -1,9 +1,10 @@
 .card {
-  max-width: 270px;
+  /* max-width: 270px; */
 }
 
 .card__image {
-
+  width: 100%;
+  object-fit: contain;
 }
 
 .card__caption {
@@ -28,12 +29,25 @@
   min-height: 24px;
   max-height: 24px;
   min-width: 24px;
+  border-radius: 12px;
   padding: 0;
   border: 0;
+  cursor: pointer;
 }
 
 .card__like_active {
   background-image: url(../../images/liked.svg);
+}
+
+.card__unlike {
+  background-image: url(../../images/delete.svg);
+  min-height: 24px;
+  max-height: 24px;
+  min-width: 24px;
+  border-radius: 12px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 
 .card__duration {
