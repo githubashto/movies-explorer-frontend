@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile {
+  width: 100%;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.profile__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000;
+  margin: 148px auto 106px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.profile__input-line {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 435px * 2);
+  margin-top: 17px;
+}
+
+.profile__input-line:not(:last-child) {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.profile__label {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000;
+}
+
+.profile__input {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: right;
+  color: #000;
+  border: 0;
+}
+
+.profile__input:focus {
+  outline: 0;
+}
+
+.profile__input:disabled {
+  background: 0;
+}
+
+.profile__edit {
+  margin-top: 220px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000;
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.profile__signout {
+  margin: 16px auto 70px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #ff004d;
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.profile__submit {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #fff;
+  background: #3456f3;
+  border-radius: 3px;
+  width: 410px;
+  margin: 20px auto 50px;
+  padding: 13px 15px;
+  border: 0;
+  cursor: pointer;
+}
+
+.profile__submit_inactive {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  cursor: not-allowed;
 }

@@ -12,7 +12,7 @@ function SearchForm() {
   return (
     <form className="search section__wide-element">
       <div className="search__query-container">
-        <input type="text" className="search__query" placeholder="Фильм" required></input>
+        <input type="search" className="search__query" placeholder="Фильм" required></input>
         <button type="submit" className="search__submit"></button>
       </div>
       <FilterCheckbox isChecked={isShortChecked} onChange={handleShortClick}/>
