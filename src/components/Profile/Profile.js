@@ -1,20 +1,19 @@
 import './Profile.css';
 import React from 'react';
 import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
 import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 import { useHistory } from "react-router-dom";
 import ApiErrors from '../ApiErrors/ApiErrors';
 
 function Profile(props) {
-  const {loggedIn} = props;
+  const {loggedIn, onMenuToggle} = props;
   const currentUser = React.useContext(CurrentUserContext);
 
   const [nameInput, setNameInput] = React.useState(currentUser.name);
   const [emailInput, setEmailInput] = React.useState(currentUser.email);
   const [editMode, setEditMode] = React.useState(false);
-  const [nameValid, setNameValid] = React.useState(false);
-  const [emailValid, setEmailValid] = React.useState(false);
+  const [nameValid, setNameValid] = React.useState(true);
+  const [emailValid, setEmailValid] = React.useState(true);
   const [formValid, setFormValid] = React.useState(false);
   const [errName, setErrName] = React.useState('none');
 
@@ -52,15 +51,13 @@ function Profile(props) {
 
   return (
     <>
-    <Header>
-      <Navigation loggedIn={loggedIn} />
-    </Header>
+    <Header loggedIn={loggedIn} onMenuToggle={onMenuToggle}/>
 
     <main>
       <form className="profile" name="profile" onSubmit={handleSubmit} noValidate>
         <h1 className="profile__title">Привет, {currentUser.name}!</h1>
         <div className="profile__input-line">
-          <label className="profile__label">Имя</label>
+          <label className="profile__label" for="form-name">Имя</label>
           <input type="text"
                  name="name"
                  id="form-name"
@@ -75,12 +72,12 @@ function Profile(props) {
             />
         </div>
         <div className="profile__input-line">
-          <label className="profile__label">Почта</label>
+          <label className="profile__label" for="form-email">Почта</label>
           <input type="text"
                  name="email"
                  id="form-email"
                  minLength="2"
-                 maxLength="200"
+                 maxLength="40"
                  className="profile__input"
                  value={emailInput}
                  onChange={handleEmailInput}
@@ -91,7 +88,7 @@ function Profile(props) {
         </div>
         {!editMode && <button className="profile__edit" onClick={handleEdit}>Редактировать</button>}
         {!editMode && <button className="profile__signout" onClick={handleSignOut}>Выйти из аккаунта</button>}
-        {editMode && <ApiErrors errName={errName} />}
+        {editMode && <ApiErrors errName={errName} className="api-errors_place_profile"/>}
         {editMode && <button className={`profile__submit ${!formValid && 'profile__submit_inactive'}`} type="submit" disabled={!formValid}>Сохранить</button>}
       </form>
     </main>

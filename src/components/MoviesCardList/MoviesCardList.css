@@ -1,20 +1,19 @@
 .cards {
-
+  width: 100%;
 }
 
 .cards__container {
-  margin: 10px auto;
+  margin: 0px auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  grid-auto-rows: minmax(230px, 1fr);
+  grid-auto-rows: minmax(223px, 1fr);
   gap: 38px 20px;
-  padding: 70px;
+  padding: 70px 0 0;
 }
 
 .cards__load {
   background: #f9f9f9;
   height: 36px;
-  width: calc(100% - 70px*2);
   padding: 0;
   border: 0;
   cursor: pointer;
@@ -29,3 +28,17 @@
   justify-content: center;
   text-align: center;
 }
+
+@media screen and (max-width: 769px) {
+.cards__container {
+  gap: 30px;
+}
+}
+
+@media screen and (max-width: 321px) {
+  .cards__container {
+    padding: 50px 0 0;
+    gap: 34px;
+    width: calc(100% - 10px);
+  }
+  }

@@ -30,20 +30,20 @@ function MoviesCardList(props) {
   return (
     <section className="cards">
       {saved === "true"
-      ? <div className="cards__container">
+      ? <div className="cards__container section__ultrawide-lmnt">
           {savedCards.map(item => (
             <MoviesCard key={item.id} {...item} saved={saved} />
           )
           )}
         </div>
       : <>
-          <div className="cards__container">
+          <div className="cards__container section__ultrawide-lmnt">
             {cards.map(item => (
               <MoviesCard key={item.id} {...item} saved={saved} />
             )
             )}
           </div>
-          <button className="cards__load">Ещё</button>
+          <button className="cards__load section__ultrawide-lmnt">Ещё</button>
         </>
       }
     </section>

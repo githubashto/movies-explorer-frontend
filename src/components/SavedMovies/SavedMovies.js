@@ -3,17 +3,14 @@ import React from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation.js';
 import Footer from '../Footer/Footer';
 
 function SavedMovies(props) {
-  const {loggedIn} = props;
+  const {loggedIn, onMenuToggle} = props;
 
   return (
     <>
-    <Header>
-      <Navigation loggedIn={loggedIn} />
-    </Header>
+    <Header loggedIn={loggedIn} darkTheme={false} onMenuToggle={onMenuToggle}/>
 
     <main>
       <section classname="movies section">

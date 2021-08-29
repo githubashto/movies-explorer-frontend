@@ -64,3 +64,30 @@
   background-repeat: no-repeat;
   margin-right: 6px;
 }
+
+.search__submit:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 769px) {
+.search {
+  flex-direction: column;
+  gap: 38px;
+  padding-bottom: 57px;
+}
+
+.search__query-container {
+  width: calc(100% - 30px);
+}
+}
+
+@media screen and (max-width: 321px) {
+  .search {
+    margin: 140px auto 0;
+    width: calc(100% - 10px * 2);
+  }
+
+  .search__query-container {
+    width: 100%;
+  }
+}

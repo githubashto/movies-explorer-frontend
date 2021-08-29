@@ -1,0 +1,121 @@
+.account {
+  width: 100%;
+  max-width: 396px;
+  margin: 70px auto 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.account__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000;
+  margin: 40px 0 20px;
+}
+
+.account__label {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #a0a0a0;
+  text-align: left;
+  margin: 20px auto 10px;
+  width: calc(100% - 30px * 2);
+}
+
+.account__input {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000;
+  border: 0;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  width: calc(100% - 30px * 2);
+}
+
+.account__input:focus {
+  outline: none;
+}
+
+.account__submit {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #fff;
+  background: #3456f3;
+  border-radius: 3px;
+  width: calc(100% - 30px*2);
+  margin: 69px auto 0;
+  padding: 13px 13px;
+  border: 0;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+.account__submit:hover {
+  opacity: 0.8;
+}
+
+.account__submit_inactive {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  cursor: not-allowed;
+}
+
+.account__note {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #a0a0a0;
+  align-self: center;
+  margin-top: 16px;
+}
+
+.account__switch {
+  color: #3456f3;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.account__switch:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 321px) {
+  .account {
+    margin: 56px auto 0;
+    align-items: center;
+  }
+
+  .account__label {
+    align-self: flex-start;
+  }
+
+  .account__submit {
+    margin: 157px auto 0;
+    padding: 15px;
+    max-width: 290px;
+  }
+
+  .account__note {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

@@ -2,7 +2,7 @@ import './ApiErrors.css';
 import React from 'react';
 
 function ApiErrors(props) {
-  const {errName} = props;
+  const {errName, className} = props;
 
   function errorText(){
     switch(errName){
@@ -25,12 +25,12 @@ function ApiErrors(props) {
       case 'none':
         return '';
       default:
-        return 'На сервере произошла ошибка.'
+        return 'Что-то пошло не так…'
     }
   }
 
   return (
-    <p className="api-errors">
+    <p className={`api-errors ${className}`}>
         {errorText()}
     </p>
   );

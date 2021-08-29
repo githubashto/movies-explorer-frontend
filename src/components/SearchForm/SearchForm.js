@@ -10,7 +10,7 @@ function SearchForm() {
   }
 
   return (
-    <form className="search section__wide-element">
+    <form className="search section__ultrawide-lmnt">
       <div className="search__query-container">
         <input type="search" className="search__query" placeholder="Фильм" required></input>
         <button type="submit" className="search__submit"></button>

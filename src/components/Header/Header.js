@@ -1,18 +1,13 @@
 import './Header.css';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from '../../images/logo.svg';
+import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
-  const {children} = props;
+  const {loggedIn, darkTheme, onMenuToggle} = props;
 
   return (
     <header className="header block">
-      <NavLink to="/" className="nav__link nav__link_movies">
-        <img src={logo} alt="Movies Explorer" className="logo" />
-      </NavLink>
-
-      {children}
+      <Navigation loggedIn={loggedIn} darkTheme={darkTheme} onMenuToggle={onMenuToggle}/>
     </header>
   );
 }
