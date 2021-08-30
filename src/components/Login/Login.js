@@ -37,6 +37,7 @@ function Login() {
 
   return (
     <main>
+      <section className="login section">
       <form className="account" name="login" onSubmit={handleSubmit} noValidate>
         <NavLink to="/">
           <img src={logo} alt="Movies Explorer" className="logo"/>
@@ -72,6 +73,7 @@ function Login() {
         <button className={`account__submit ${!formValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!formValid}>Войти</button>
         <p className="account__note">Ещё не зарегистрированы? <NavLink to="/signup" className="account__switch">Регистрация</NavLink></p>
       </form>
+      </section>
     </main>
   );
 }

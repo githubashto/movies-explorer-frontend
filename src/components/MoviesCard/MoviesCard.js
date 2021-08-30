@@ -21,7 +21,7 @@ function MoviesCard(props) {
   }
 
   const cardLikeButtonClassName = (
-    `card__like ${isLiked && 'card__like_active'}`
+    `card__like ${isLiked ? 'card__like_active' : ''}`
   );
 
   return (

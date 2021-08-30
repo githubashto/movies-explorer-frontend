@@ -1,5 +1,6 @@
 .card {
-  /* max-width: 270px; */
+  display: flex;
+  flex-direction: column;
 }
 
 .card__image {
@@ -11,8 +12,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 14px 0 13px 0;
-  border-bottom: 1px solid #e8e8e8;
+  margin: 14px 0 0;
+  padding-bottom: 29px;
+  border-bottom: 1px solid #424242;
 }
 
 .card__title {
@@ -21,11 +23,12 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
-  color: #000;
+  margin: 0;
+  color: #fff;
 }
 
 .card__like {
-  background-image: url(../../images/like.svg);
+  background: #313131 url(../../images/like.svg) no-repeat center;
   min-height: 24px;
   max-height: 24px;
   min-width: 24px;
@@ -59,7 +62,7 @@
   line-height: 13px;
   display: flex;
   align-items: center;
-  color: #a0a0a0;
+  color: #8b8b8b;
 }
 
 @media screen and (max-width: 769px) {

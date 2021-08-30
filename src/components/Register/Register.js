@@ -46,6 +46,7 @@ function Register() {
 
   return (
     <main>
+      <section className="register section">
       <form className="account" name="register" onSubmit={handleSubmit} noValidate>
         <NavLink to="/">
           <img src={logo} alt="Movies Explorer" className="logo" />
@@ -94,6 +95,7 @@ function Register() {
         <button className={`account__submit ${!formValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!formValid}>Зарегистрироваться</button>
         <p className="account__note">Уже зарегистрированы? <NavLink to="/signin" className="account__switch">Войти</NavLink></p>
       </form>
+      </section>
     </main>
   );
 }

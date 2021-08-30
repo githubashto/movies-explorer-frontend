@@ -1,5 +1,5 @@
 .techs {
-    background: #f5f5f5;
+    background: #272727;
 }
 
 .techs__subtitle {
@@ -10,7 +10,7 @@
     line-height: 58px;
     text-align: center;
     letter-spacing: -0.04em;
-    color: #000;
+    color: #fff;
     margin: 90px auto 26px;
 }
 
@@ -20,7 +20,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
-  color: #000;
+  color: #fff;
   max-width: 460px;
   text-align: center;
   margin: 0 auto;
@@ -45,8 +45,8 @@
   line-height: 60px;
   text-align: center;
   letter-spacing: -0.04em;
-  color: #000;
-  background: #E8E8E8;
+  color: #fff;
+  background: #303030;
   border-radius: 10px;
   min-width: 90px;
   max-height: 60px;

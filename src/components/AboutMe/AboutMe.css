@@ -1,5 +1,5 @@
 .aboutme {
-  background: #fff;
+  background: #202020;
 }
 
 .aboutme__bio {
@@ -20,7 +20,7 @@
   font-size: 50px;
   line-height: 58px;
   letter-spacing: -0.04em;
-  color: #000;
+  color: #fff;
   margin: 0 auto 18px;
 }
 
@@ -30,7 +30,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
-  color: #111;
+  color: #fff;
   mix-blend-mode: normal;
   margin: 0 auto 26px;
 }
@@ -41,7 +41,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 22px;
-  color: #000;
+  color: #fff;
   mix-blend-mode: normal;
   max-width: 600px;
 }
@@ -60,7 +60,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 

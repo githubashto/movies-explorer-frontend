@@ -12,7 +12,7 @@ function Main(props) {
 
   return (
     <>
-    <Header loggedIn={loggedIn} darkTheme={true} onMenuToggle={onMenuToggle}/>
+    <Header loggedIn={loggedIn} onMenuToggle={onMenuToggle}/>
 
     <main>
       <Promo />

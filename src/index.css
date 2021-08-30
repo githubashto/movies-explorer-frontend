@@ -8,6 +8,7 @@
 .root {
     max-width: 1280px;
     margin: auto;
+    background-color: #202020;
 }
 
 @media screen and (max-width: 769px) {

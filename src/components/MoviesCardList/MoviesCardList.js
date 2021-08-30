@@ -7,7 +7,7 @@ function MoviesCardList(props) {
   const cards = [
     {id: 1, nameRU: '33 слова о дизайне', duration: 102, image: {url: './card1.png'}, isLiked: true },
     {id: 2, nameRU: 'Киноальманах «100 лет дизайна»', duration: 102, image: {url: './card2.png'}, isLiked: false },
-    {id: 3, nameRU: 'В погоне за Бенкси', duration: 102, image: {url: './card3.png'}, isLiked: false },
+    {id: 3, nameRU: 'В погоне за Бэнкси', duration: 102, image: {url: './card3.png'}, isLiked: false },
     {id: 4, nameRU: 'Баския: Взрыв реальности', duration: 102, image: {url: './card4.png'}, isLiked: false },
     {id: 5, nameRU: 'Бег это свобода', duration: 102, image: {url: './card5.png'}, isLiked: true },
     {id: 6, nameRU: 'Книготорговцы', duration: 102, image: {url: './card6.png'}, isLiked: true },
@@ -43,7 +43,7 @@ function MoviesCardList(props) {
             )
             )}
           </div>
-          <button className="cards__load section__ultrawide-lmnt">Ещё</button>
+          <button className="cards__load">Ещё</button>
         </>
       }
     </section>

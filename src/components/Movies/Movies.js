@@ -18,10 +18,10 @@ function Movies(props) {
 
   return (
     <>
-    <Header loggedIn={loggedIn} darkTheme={false} onMenuToggle={onMenuToggle}/>
+    <Header loggedIn={loggedIn} onMenuToggle={onMenuToggle}/>
 
     <main>
-      <section classname="movies section">
+      <section className="movies section">
         <SearchForm />
         {isLoading
         ? <Preloader />

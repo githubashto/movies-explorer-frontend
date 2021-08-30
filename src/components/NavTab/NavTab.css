@@ -1,32 +1,29 @@
 .navtab {
-  height: 74px;
-  width: 100%;
-  max-width: 1280px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-  gap: 40px;
-  position: absolute;
-  bottom: 0;
+  margin: 0 auto 75px;
 }
 
 .navtab__link {
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
-  display: flex;
-  align-items: center;
-  text-decoration-line: none;
-  border-bottom: 1px solid currentColor;
+  padding: 10px 16px;
+  border: 1px solid #fff;
   color: #fff;
+  text-decoration: none;
+  cursor: pointer;
  }
 
 .navtab__link:hover {
   opacity: 0.7;
+}
+
+@media screen and (max-width: 769px) {
+  .navtab__link {
+    margin: 0 auto;
+   }
 }
 
 @media screen and (max-width: 321px) {

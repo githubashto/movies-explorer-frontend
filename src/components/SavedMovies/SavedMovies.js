@@ -10,10 +10,10 @@ function SavedMovies(props) {
 
   return (
     <>
-    <Header loggedIn={loggedIn} darkTheme={false} onMenuToggle={onMenuToggle}/>
+    <Header loggedIn={loggedIn} onMenuToggle={onMenuToggle}/>
 
     <main>
-      <section classname="movies section">
+      <section className="saved-movies section">
         <SearchForm />
         <MoviesCardList saved="true" />
       </section>

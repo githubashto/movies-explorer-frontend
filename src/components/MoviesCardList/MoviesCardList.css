@@ -12,8 +12,10 @@
 }
 
 .cards__load {
-  background: #f9f9f9;
+  background: #2f2f2f;
+  color: #fff;
   height: 36px;
+  width: 320px;
   padding: 0;
   border: 0;
   cursor: pointer;
@@ -27,6 +29,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 769px) {

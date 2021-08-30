@@ -1,4 +1,4 @@
-@keyframes preloader-inside-white {
+@keyframes preloader-inside-black {
     0% {
         -webkit-transform: scale(0, 0);
         -moz-transform: scale(0, 0);
@@ -15,7 +15,7 @@
     }
 }
 
-@keyframes preloader-inside-red {
+@keyframes preloader-inside-green {
     0% {
         -webkit-transform: scale(0, 0);
         -moz-transform: scale(0, 0);
@@ -77,12 +77,12 @@
 }
 
 .preloader__round::after {
-    background: white;
-    animation: preloader-inside-white 1s ease-in-out infinite;
+    background: #202020;
+    animation: preloader-inside-black 1s ease-in-out infinite;
 }
 
 .preloader__round::before {
     z-index: 10;
-    background: #073042;
-    animation: preloader-inside-red 1s ease-in-out infinite;
+    background: #3ddC84;
+    animation: preloader-inside-green 1s ease-in-out infinite;
 }

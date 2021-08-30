@@ -3,10 +3,8 @@ import React from 'react';
 
 function NavTab() {
   return (
-    <nav className="navtab">
-      <a className="navtab__link" href="#project">О&nbsp;проекте</a>
-      <a className="navtab__link" href="#tech">Технологии</a>
-      <a className="navtab__link" href="#about-me">Студент</a>
+    <nav className="navtab section__wide-lmnt">
+      <a className="navtab__link" href="#project">Узнать больше</a>
     </nav>
   );
 }
