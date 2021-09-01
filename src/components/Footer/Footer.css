@@ -45,7 +45,7 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .footer__credits {
     font-size: 12px;
     line-height: 15px;

@@ -129,7 +129,7 @@
   cursor: not-allowed;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
   .profile__title {
     width: calc(100% - 179px * 2);
   }
@@ -144,7 +144,7 @@
 }
 
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 561px) {
   .profile__title {
     width: calc(100% - 30px * 2);
     max-width: 260px;

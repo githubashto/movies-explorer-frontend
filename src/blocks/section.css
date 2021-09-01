@@ -30,7 +30,7 @@
     max-width: 1140px;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
 .section__title {
     margin: 90px auto 0;
 }
@@ -44,7 +44,7 @@
 }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
 .section__wide-lmnt {
   width: calc(100% - 18px*2);
 }

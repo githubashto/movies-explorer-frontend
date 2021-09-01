@@ -53,16 +53,17 @@
   }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .promo {
-    background-size: 248px;
+    background-size: 210px;
+    background-position: center top 144px;
   }
 
   .promo__title {
     font-size: 31px;
     line-height: 39px;
     text-align: center;
-    margin: 207px auto 246px;
+    margin: 394px auto 246px;
     max-width: 300px;
   }
 }

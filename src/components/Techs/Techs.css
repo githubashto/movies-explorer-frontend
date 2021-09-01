@@ -52,7 +52,7 @@
   max-height: 60px;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
 .techs__subtitle {
   margin: 80px auto 22px;
 }
@@ -74,7 +74,7 @@
 }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .techs__subtitle {
     font-size: 30px;
     line-height: 36px;

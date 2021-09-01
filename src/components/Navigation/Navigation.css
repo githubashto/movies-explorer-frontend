@@ -51,6 +51,8 @@
   margin-left: 30px;
   background-color: #2be080;
   padding: 8px 20px;
+  color: #000;
+  border-radius: 3px;
 }
 
 .nav__link-btn {
@@ -68,7 +70,7 @@
   opacity: 0;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
 /* hamburger */
 .nav__toggle {
   display: flex;
@@ -79,7 +81,7 @@
   width: 28px;
   height: 24px;
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
 }
 
 .nav__toggle > span,
@@ -108,14 +110,15 @@
   visibility: hidden;
   gap: 22px;
   background-color: #202020;
-  position: absolute;
+  position: fixed;
   visibility: hidden;
   top: 0;
   right: 0;
   width: calc(100% - 248px);
-  height: 100%;
   min-height: 1024px;
   padding-top: 159px;
+  overflow: auto;
+  z-index: 3;
 }
 
 .nav__link {
@@ -133,16 +136,6 @@
   padding-bottom: 4px;
   border-bottom: 2px solid #fff;
 }
-
-.nav__link-btn {
-  margin: 621px auto 92px;
-  font-size: 14px;
-  line-height: 16px;
-}
-
-/* .nav__right_layout_vertical .nav__link:first-child {
-  margin-top: 159px;
-} */
 
 /* cross */
 .nav__check:checked ~ .nav__toggle span {
@@ -162,9 +155,17 @@
 .nav__check:checked ~ .nav__right, .nav__check:checked ~ .nav__right > .nav__link_type_main {
   visibility: visible;
 }
+
+.nav__right_layout_vertical .nav__link-btn {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  position: fixed;
+  bottom: 92px;
+}
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .nav__link {
     font-size: 10px;
     line-height: 16px;
@@ -206,11 +207,5 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-}
-
-.nav__right_layout_vertical .nav__link-btn {
-  margin: 0 0 47px;
-  font-size: 14px;
-  line-height: 16px;
 }
 }

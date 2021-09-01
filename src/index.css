@@ -11,11 +11,6 @@
     background-color: #202020;
 }
 
-@media screen and (max-width: 769px) {
-.root {
-    max-width: 768px;
-}
-
 .overlay {
     position: fixed;
     top: 0;
@@ -26,6 +21,11 @@
     opacity: 1;
     height: 100%;
     z-index: 2;
+}
+
+@media screen and (max-width: 769px) {
+.root {
+    max-width: 768px;
 }
 }
 

@@ -47,7 +47,7 @@
   opacity: 0.7;
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .notfound__code {
     font-size: 80px;
     line-height: 97px;

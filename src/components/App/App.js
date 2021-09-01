@@ -13,19 +13,9 @@ import NotFound from '../NotFound/NotFound';
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({name: 'Николай',  email: 'astakhayev@yandex.ru'});
-  const [overlay, setOverlay] = React.useState(false);
-
-  function handleMenuToggle() {
-    setOverlay(!overlay);
-  }
-
-  React.useEffect(() => {
-    document.addEventListener('onload', (()=> setOverlay(false)));
-  });
 
   return (
     <>
-    <div className={overlay ? 'overlay' : ''}/>
     <CurrentUserContext.Provider value={currentUser}>
       <Switch>
         <Route path="/signup">
@@ -37,19 +27,19 @@ function App() {
         </Route>
 
         <Route path="/movies">
-          <Movies loggedIn="true" onMenuToggle={handleMenuToggle}/>
+          <Movies loggedIn="true"/>
         </Route>
 
         <Route path="/saved-movies">
-          <SavedMovies loggedIn="true" onMenuToggle={handleMenuToggle}/>
+          <SavedMovies loggedIn="true"/>
         </Route>
 
         <Route path="/profile">
-          <Profile loggedIn="true" onMenuToggle={handleMenuToggle}/>
+          <Profile loggedIn="true"/>
         </Route>
 
         <Route exact path="/">
-          <Main loggedIn={loggedIn} onMenuToggle={handleMenuToggle}/>
+          <Main loggedIn={loggedIn}/>
         </Route>
 
         <Route path="">

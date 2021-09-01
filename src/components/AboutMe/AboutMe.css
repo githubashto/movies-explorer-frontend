@@ -7,6 +7,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 66px auto 0;
+  gap: 49px;
 }
 
 .aboutme__narrative {
@@ -67,11 +68,12 @@
 .aboutme__portrait {
   max-width: 270px;
   border-radius: 10px;
+  margin: 0 auto;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
 .aboutme__name {
-    margin: 0 auto 16px;
+  margin: 0 auto 16px;
 }
 
 .aboutme__subtitle {
@@ -91,7 +93,7 @@
 }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .aboutme__bio {
     flex-direction: column-reverse;
     margin: 60px auto 0;
@@ -116,6 +118,7 @@
   .aboutme__text {
     font-size: 11px;
     line-height: 16px;
+    max-width: 533px;
   }
 
   .aboutme__social {
@@ -130,7 +133,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
-    color: #000;
+    color: #fff;
     text-decoration: none;
   }
 }

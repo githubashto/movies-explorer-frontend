@@ -39,6 +39,7 @@ function Login() {
     <main>
       <section className="login section">
       <form className="account" name="login" onSubmit={handleSubmit} noValidate>
+        <div className="account__fields">
         <NavLink to="/">
           <img src={logo} alt="Movies Explorer" className="logo"/>
         </NavLink>
@@ -70,8 +71,11 @@ function Login() {
                 ref = {passwordInputElement}
           />
         {submitted && <ApiErrors errName={errName} className="api-errors_place_account"/>}
+        </div>
+        <div className="account__links">
         <button className={`account__submit ${!formValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!formValid}>Войти</button>
         <p className="account__note">Ещё не зарегистрированы? <NavLink to="/signup" className="account__switch">Регистрация</NavLink></p>
+        </div>
       </form>
       </section>
     </main>

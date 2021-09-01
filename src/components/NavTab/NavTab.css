@@ -20,15 +20,15 @@
   opacity: 0.7;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
   .navtab__link {
     margin: 0 auto;
    }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .navtab {
-    height: 66px;
+    height: 36px;
     gap: 24px;
   }
 

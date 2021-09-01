@@ -55,7 +55,7 @@
   color: #fff;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
 .portfolio {
   margin: 91px auto 90px;
 }
@@ -69,7 +69,7 @@
 }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .portfolio {
     margin: 69px auto 70px;
     width: calc(100% - 14px * 2);

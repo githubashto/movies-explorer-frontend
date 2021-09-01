@@ -4,7 +4,13 @@
   margin: 70px auto 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.account__fields {
+  display: flex;
+  flex-direction: column;
 }
 
 .account__title {
@@ -47,6 +53,12 @@
   outline: none;
 }
 
+.account__links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+
 .account__submit {
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
@@ -58,7 +70,7 @@
   background: #4285f4;
   border-radius: 3px;
   width: 100%;
-  margin: 69px auto 0;
+  margin: 0 auto 0;
   padding: 13px 13px;
   border: 0;
   cursor: pointer;
@@ -100,14 +112,18 @@
   .account {
     width: calc(100% - 186px * 2);
   }
+
+  .account__links {
+    margin-bottom: 232px;
+  }
 }
 
-@media screen and (max-width: 561px) {
+@media screen and (max-width: 661px) {
   .account {
     margin: 56px auto 0;
     align-items: center;
     width: calc(100% - 30px * 2);
-    max-width: 260px;
+    max-width: 600px;
   }
 
   .account__label {
@@ -115,13 +131,15 @@
   }
 
   .account__submit {
-    margin: 157px auto 0;
     padding: 15px;
-    width: calc(100% - 30px * 2);
-    max-width: 260px;  }
+  }
 
   .account__note {
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .account__links {
+    margin-bottom: 30px;
   }
 }

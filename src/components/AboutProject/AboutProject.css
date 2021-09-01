@@ -67,7 +67,7 @@
   color: #8b8b8b;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
 .project__subtitle {
   margin: 0 0 22px;
 }
@@ -82,7 +82,7 @@
 }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 561px) {
   .project__desc {
     margin: 60px auto;
     gap: 56px;

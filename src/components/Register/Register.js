@@ -48,6 +48,7 @@ function Register() {
     <main>
       <section className="register section">
       <form className="account" name="register" onSubmit={handleSubmit} noValidate>
+        <div className="account__fields">
         <NavLink to="/">
           <img src={logo} alt="Movies Explorer" className="logo" />
         </NavLink>
@@ -92,8 +93,11 @@ function Register() {
                 ref = {passwordInputElement}
           />
         {submitted && <ApiErrors errName={errName} className="api-errors_place_account"/>}
+        </div>
+        <div className="account__links">
         <button className={`account__submit ${!formValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!formValid}>Зарегистрироваться</button>
         <p className="account__note">Уже зарегистрированы? <NavLink to="/signin" className="account__switch">Войти</NavLink></p>
+        </div>
       </form>
       </section>
     </main>
