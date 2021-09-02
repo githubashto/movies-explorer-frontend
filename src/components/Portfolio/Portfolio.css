@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+.portfolio {
+  margin: 101px auto 125px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.portfolio__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  color: #8b8b8b;
+  mix-blend-mode: normal;
+  margin: 0 auto 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.portfolio__links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.portfolio__link {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.portfolio__link:hover {
+  opacity: 0.7;
+}
+
+.portfolio__link:not(:last-child) {
+  margin-bottom: 19px;
+  border-bottom: 1px solid #424242;
+}
+
+.portfolio__link-text {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.portfolio__link-arrow {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 60px;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+.portfolio {
+  margin: 91px auto 90px;
+}
+
+.portfolio__linktext {
+  font-size: 28px;
+}
+
+.portfolio__linkarrow {
+  font-size: 28px;
+}
+}
+
+@media screen and (max-width: 561px) {
+  .portfolio {
+    margin: 69px auto 70px;
+    width: calc(100% - 14px * 2);
   }
-  to {
-    transform: rotate(360deg);
+
+  .portfolio__title {
+    font-size: 14px;
+    margin: 0 auto 40px;
+  }
+
+  .portfolio__link-text {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .portfolio__link-arrow {
+    font-size: 18px;
+    line-height: 28px;
   }
 }

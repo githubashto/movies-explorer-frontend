@@ -1,21 +1,28 @@
 import './Main.css';
 import React from 'react';
 import Promo from '../Promo/Promo';
-import NavTab from '../NavTab/NavTab';
 import AboutProject from '../AboutProject/AboutProject';
 import Techs from '../Techs/Techs';
 import AboutMe from '../AboutMe/AboutMe';
-import Portfolio from '../Portfolio/Portfolio';
 import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 
+function Main(props) {
+  const {loggedIn, onMenuToggle} = props;
 
-function Main() {
   return (
-    <main>
+    <>
+    <Header loggedIn={loggedIn} onMenuToggle={onMenuToggle}/>
 
+    <main>
+      <Promo />
+      <AboutProject />
+      <Techs />
+      <AboutMe />
     </main>
+
+    <Footer />
+    </>
   );
 }
 

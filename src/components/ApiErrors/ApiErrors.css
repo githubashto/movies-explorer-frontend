@@ -1,0 +1,23 @@
+.api-errors {
+  font-family: 'Inter', Arial, sans-serif;
+  text-align: left;
+  color: #ee3465;
+}
+
+.api-errors_place_profile {
+  height: 14px;
+  margin: 189px 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.api-errors_place_account {
+  height: 12px;
+  margin: 10px au0to 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+}

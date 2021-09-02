@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+.aboutme {
+  background: #202020;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.aboutme__bio {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 66px auto 0;
+  gap: 49px;
 }
 
-.App-link {
-  color: #61dafb;
+.aboutme__narrative {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.aboutme__name {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin: 0 auto 18px;
+}
+
+.aboutme__subtitle {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #fff;
+  mix-blend-mode: normal;
+  margin: 0 auto 26px;
+}
+
+.aboutme__text {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
+  mix-blend-mode: normal;
+  max-width: 600px;
+}
+
+.aboutme__social {
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.aboutme__social-link {
+  margin: 0 20px 0 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.aboutme__portrait {
+  max-width: 270px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+.aboutme__name {
+  margin: 0 auto 16px;
+}
+
+.aboutme__subtitle {
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0 auto 20px;
+}
+
+.aboutme__text {
+  font-size: 12px;
+  line-height: 18px;
+  max-width: 364px;
+}
+
+.aboutme__portrait {
+  max-width: 255px;
+}
+}
+
+@media screen and (max-width: 561px) {
+  .aboutme__bio {
+    flex-direction: column-reverse;
+    margin: 60px auto 0;
+    gap: 40px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .aboutme__portrait {
+    max-width: 292px;
+  }
+
+  .aboutme__name {
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0 auto 20px;
+  }
+
+  .aboutme__subtitle {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .aboutme__text {
+    font-size: 11px;
+    line-height: 16px;
+    max-width: 533px;
+  }
+
+  .aboutme__social {
+    margin: 40px 0 0;
+    position: static;
+  }
+
+  .aboutme__social-link {
+    margin: 0 26px 0 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    text-decoration: none;
   }
 }

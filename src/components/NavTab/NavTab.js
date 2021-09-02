@@ -3,9 +3,9 @@ import React from 'react';
 
 function NavTab() {
   return (
-    <div>
-
-    </div>
+    <nav className="navtab section__wide-lmnt">
+      <a className="navtab__link" href="#project">Узнать больше</a>
+    </nav>
   );
 }
 

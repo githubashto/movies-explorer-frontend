@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
   display: flex;
   flex-direction: column;
+}
+
+.card__image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.card__caption {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 14px 0 0;
+  padding-bottom: 29px;
+  border-bottom: 1px solid #424242;
 }
 
-.App-link {
-  color: #61dafb;
+.card__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card__like {
+  background: #313131 url(../../images/like.svg) no-repeat center;
+  min-height: 24px;
+  max-height: 24px;
+  min-width: 24px;
+  border-radius: 12px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.card__like_active {
+  background: url(../../images/liked.svg);
+}
+
+.card__unlike {
+  min-height: 24px;
+  max-height: 24px;
+  min-width: 24px;
+  border-radius: 12px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+;}
+
+.card__unlike:hover {
+  background: #313131 url(../../images/delete.svg) no-repeat center;
+}
+
+.card__duration {
+  margin: 6px 0 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #8b8b8b;
+}
+
+@media screen and (max-width: 1024px) {
+.card__caption {
+  margin: 14px 0 29px 0;
+}
 }

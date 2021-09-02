@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search {
+  margin: 154px auto 0;
+  padding-bottom: 70px;
+  border-bottom: 1px solid #e8e8e8;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.search__query-container {
+  border-radius: 450px;
+  background: #2f2f2f;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 70px * 2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.search__query {
+  width: 100%;
+  padding: 15px 20px;
+  border: 0;
+  background: #2f2f2f;
+  border-radius: 200px;
+  border-top-style: none;
+  color: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.search__query:focus {
+  outline: none;
+  border: 1px solid #dadada;
+}
+
+.search__query::-webkit-input-placeholder {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #8b8b8b;
+}
+.search__query::-moz-placeholder {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #8b8b8b;
+}
+
+.search__submit {
+  overflow: visible;
+  position: absolute;
+  border: 0;
+  right: 34px;
+  padding: 0;
+  cursor: pointer;
+  height: 48px;
+  color: #fff;
+  border-radius: 46px;
+  width: 34px;
+  background-color: #2F2F2F;
+  background-image: url(../../images/find.svg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  margin-right: 6px;
+}
+
+.search__submit:hover {
+  opacity: 0.8;
+}
+
+/* .search__query:focus + .search__submit {
+  border-top: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;} */
+
+@media screen and (max-width: 769px) {
+.search {
+  padding-bottom: 57px;
+}
+
+.search__query-container {
+  width: calc(100% - 30px * 2);
+}
+}
+
+@media screen and (max-width: 321px) {
+  .search {
+    margin: 140px auto 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search__query-container {
+    width: calc(100% - 14px * 2);
+  }
+
+  .search__submit {
+    right: 14px;
   }
 }
