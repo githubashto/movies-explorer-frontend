@@ -6,10 +6,11 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function SavedMovies(props) {
-  const {loggedIn, savedMovies, onSearch} = props;
+  const {loggedIn, savedMovies, onSearch, onFilter, onCardDelete} = props;
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [searchResults, setSearchResults] = React.useState([savedMovies]);
+  const [searchResults, setSearchResults] = React.useState(savedMovies);
   const [isShort, setShort] = React.useState(false);
+  const [filteredResults, setFilteredResults] = React.useState(savedMovies);
 
   function handleSearchQuery(query) {
     setSearchQuery(query);
@@ -20,9 +21,17 @@ function SavedMovies(props) {
   }
 
   React.useEffect(() => {
-    const results = onSearch(savedMovies, searchQuery);
-    setSearchResults(results);
+    const getResults = async () => {
+      const results = await onSearch(savedMovies, searchQuery);
+      setSearchResults(results);
+    }
+    getResults();
   }, [searchQuery]);
+
+  React.useEffect(() => {
+    const results = onFilter(searchResults, isShort);
+    setFilteredResults(results);
+  }, [searchResults, isShort]);
 
   return (
     <>
@@ -31,7 +40,9 @@ function SavedMovies(props) {
     <main>
       <section className="saved-movies section">
         <SearchForm onSearch={handleSearchQuery} isShort={isShort} onShortClick={handleShortClick}/>
-        <MoviesCardList isSaved={true} cards={searchResults} />
+        <MoviesCardList savedAppearance={true}
+             cards={filteredResults}
+             onCardDelete={onCardDelete} />
       </section>
     </main>
 

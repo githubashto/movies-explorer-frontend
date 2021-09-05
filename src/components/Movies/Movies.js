@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function Movies(props) {
-  const { loggedIn, movies, onSearch, onFilter, onCardLike, savedMovies } = props;
+  const { loggedIn, movies, onSearch, onFilter, onCardLike, savedMovies, onCardUnlike } = props;
   const [isLoading, setIsLoading] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
   const [searchResults, setSearchResults] = React.useState([]);
@@ -48,7 +48,12 @@ function Movies(props) {
           ? <></>
           : <>{isLoading
             ? <Preloader />
-            : <MoviesCardList isSaved={false} cards={filteredResults} onCardLike={onCardLike} />
+            : <MoviesCardList savedAppearance={false}
+             cards={filteredResults}
+             onCardLike={onCardLike}
+             savedMovies={savedMovies}
+             onCardUnlike={onCardUnlike}
+              />
             }
             </>
         }

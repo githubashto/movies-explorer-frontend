@@ -37,22 +37,41 @@ function App() {
 
   function handleCardLike(card) {
     mainApi.postMovie(card)
-      .then(newCard => {
-        // const newCards = cards.map(c => c._id === card.id ? newCard : c);
-        // setCards(newCards);
-        console.log(newCard);
-     })
-      .catch(err => console.log(err.message))
+      .then(res => {
+        mainApi.getMovies()
+        .then((res) => {
+          setSavedMovies(res);
+        })
+        .catch(err => console.log(err.message));
+      })
+    .catch(err => console.log(err.message));
   }
 
-  function handleCardDelete(card) {
-    mainApi.deleteMovie(card.id)
-      .then(() => {
-        // const newCards = cards.filter(c => c._id !== card.id);
-        // setCards(newCards);
-     })
+  function handleCardDelete(cardId) {
+    mainApi.deleteMovie(cardId)
+      .then(res => {
+        mainApi.getMovies()
+          .then((res) => {
+          setSavedMovies(res);
+      })
+      .catch(err => console.log(err.message));
+      })
      .catch(err => console.log(err.message))
-    }
+  }
+
+  function handleUnlike(movieId) {
+    let cardId = savedMovies.find(card => card.movieId === movieId)._id
+
+    mainApi.deleteMovie(cardId)
+      .then(res => {
+        mainApi.getMovies()
+          .then((res) => {
+          setSavedMovies(res);
+      })
+      .catch(err => console.log(err.message));
+      })
+     .catch(err => console.log(err.message))
+  }
 
   function getMovies() {
       if (localStorage.getItem('storedMovies')) {
@@ -109,7 +128,10 @@ function App() {
         .catch(err => console.log(err.message))
 
       mainApi.getMovies()
-        .then((res) => setSavedMovies(res))
+        .then((res) => {
+          setSavedMovies(res);
+        }
+          )
         .catch(err => console.log(err.message))
       }
   }
@@ -171,6 +193,7 @@ function App() {
           onSearch={filterCardsByQuery}
           onFilter={filterCardsByDuration}
           onCardLike={handleCardLike}
+          onCardUnlike={handleUnlike}
         />
 
         <ProtectedRoute
@@ -180,6 +203,7 @@ function App() {
           savedMovies={savedMovies}
           onSearch={filterCardsByQuery}
           onFilter={filterCardsByDuration}
+          onCardDelete={handleCardDelete}
         />
 
         <ProtectedRoute
