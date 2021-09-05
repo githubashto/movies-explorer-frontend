@@ -1,38 +1,19 @@
 import './Login.css';
 import React from 'react';
 import logo from '../../images/logo.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ApiErrors from '../ApiErrors/ApiErrors';
+import { useFormWithValidation } from '../FormValidator/FormValidator';
 
-function Login() {
-  const [emailInput, setEmailInput] = React.useState('');
-  const [passwordInput, setPasswordInput] = React.useState('');
-  const [emailValid, setEmailValid] = React.useState(false);
-  const [passwordValid, setPasswordValid] = React.useState(false);
-  const [formValid, setFormValid] = React.useState(false);
-  const [errName, setErrName] = React.useState('none');
-  const [submitted, setSubmitted] = React.useState(false);
+function Login(props) {
+  const {onLogin, apiErrorText} = props;
 
-  const emailInputElement = React.useRef();
-  const passwordInputElement = React.useRef();
-
-  function handleEmailInput(e) {
-    setEmailInput(e.target.value);
-    setEmailValid(emailInputElement.current.validity.valid);
-    setFormValid(passwordValid && emailValid);
-  }
-
-  function handlePasswordInput(e) {
-    setPasswordInput(e.target.value);
-    setPasswordValid(passwordInputElement.current.validity.valid);
-    setFormValid(passwordValid && emailValid);
-  }
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({});
 
   function handleSubmit(e) {
     e.preventDefault();
-    setErrName('');
-    setFormValid(false);
-    setSubmitted(true);
+    onLogin(values);
+    resetForm();
   }
 
   return (
@@ -44,37 +25,35 @@ function Login() {
           <img src={logo} alt="Movies Explorer" className="logo"/>
         </NavLink>
         <h1 className="account__title">Рады видеть!</h1>
-          <label className="account__label" for="form-email">E-mail</label>
+          <label className="account__label" htmlFor="form-email">E-mail</label>
           <input type="text"
                 name="email"
                 id="form-email"
                 minLength="2"
                 maxLength="40"
                 className="account__input"
-                value={emailInput}
+                value={values.email || ''}
                 placeholder="Почта"
-                onChange={handleEmailInput}
+                onChange={handleChange}
                 required
-                ref = {emailInputElement}
           />
-          <label className="account__label" for="form-password">Пароль</label>
+          <span id="form-email-error" className="account__error">{errors.email}</span>
+          <label className="account__label" htmlFor="form-password">Пароль</label>
           <input type="password"
-                name="name"
+                name="password"
                 id="form-password"
-                minLength="2"
-                maxLength="40"
                 className="account__input"
-                value={passwordInput}
+                value={values.password || ''}
                 placeholder="Пароль"
-                onChange={handlePasswordInput}
+                onChange={handleChange}
                 required
-                ref = {passwordInputElement}
           />
-        {submitted && <ApiErrors errName={errName} className="api-errors_place_account"/>}
+          <span id="form-password-error" className="account__error">{errors.password}</span>
         </div>
         <div className="account__links">
-        <button className={`account__submit ${!formValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!formValid}>Войти</button>
-        <p className="account__note">Ещё не зарегистрированы? <NavLink to="/signup" className="account__switch">Регистрация</NavLink></p>
+          <ApiErrors apiErrorText={apiErrorText} className="account__error"/>
+          <button className={`account__submit ${!isValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!isValid}>Войти</button>
+          <p className="account__note">Еще не зарегистрированы? <Link to="/signup" className="account__switch">Регистрация</Link></p>
         </div>
       </form>
       </section>

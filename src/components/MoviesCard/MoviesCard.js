@@ -2,19 +2,30 @@ import './MoviesCard.css';
 import React from 'react';
 
 function MoviesCard(props) {
-  const {nameRU, saved} = props;
+  const {country,
+  director,
+  duration,
+  year,
+  description,
+  image,
+  trailer,
+  movieId,
+  nameRU,
+  nameEN,
+  thumbnail,
+  savedAppearance,
+  onLike
+} = props;
 
-  const image = process.env.PUBLIC_URL + props.image.url;
+  const durationText = Math.trunc(duration/60) + ' ч ' + duration % 60 + ' м';
 
-  const duration = Math.trunc(props.duration/60) + ' ч ' + props.duration % 60 + ' м';
-
-  const [isLiked, setIsLiked] = React.useState(props.isLiked);
+  const [isLiked, setIsLiked] = React.useState(false);
 
   const [visible, setVisible] = React.useState(true);
 
-  const onCardLike = () => {
-    setIsLiked(!isLiked);
-  }
+  // const onCardLike = () => {
+  //   setIsLiked(!isLiked);
+  // }
 
   const onCardDelete = () => {
     setVisible(false);
@@ -28,15 +39,17 @@ function MoviesCard(props) {
     <>
     {visible
     ? <article className="card">
-      <img src={image} alt={nameRU} className="card__image" />
+      <a href={trailer} target="_blank" rel="noreferrer" className="card__picture">
+        <img src={image} alt={nameEN === '—' ? nameRU : nameEN} className="card__image" title={`${nameEN} (${country}, ${year}, реж. ${director}). ${description}`} />
+      </a>
       <div className="card__caption">
         <h3 className="card__title">{nameRU}</h3>
-        {saved === "true"
+        {savedAppearance
           ? <button type="button" className="card__unlike" onClick={onCardDelete}></button>
-          : <button type="button" className={cardLikeButtonClassName} onClick={onCardLike}></button>
+          : <button type="button" className={cardLikeButtonClassName} onClick={onLike}></button>
         }
       </div>
-      <p className="card__duration">{duration}</p>
+      <p className="card__duration">{durationText}</p>
     </article>
     : <></>
     }

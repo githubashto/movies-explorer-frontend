@@ -11,8 +11,9 @@ function Header(props) {
   }
 
   React.useEffect(() => {
-    document.addEventListener('onload', (()=> setOverlay(false)));
+    document.addEventListener('onload', (() => setOverlay(false)));
   });
+
   return (
     <header className="header block">
       <Navigation loggedIn={loggedIn} onMenuToggle={handleMenuToggle}/>

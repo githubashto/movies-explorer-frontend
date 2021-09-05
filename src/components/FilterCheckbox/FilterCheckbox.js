@@ -9,7 +9,7 @@ function FilterCheckbox(props) {
     <div className="search__short">
       <div className="search__short-checkbox">
         <input type="checkbox" id="short" defaultChecked={isChecked} onChange={onChange} />
-        <label for="short"></label>
+        <label htmlFor="short"></label>
         <span className="search__short-label">Короткометражки</span>
     </div>
     </div>

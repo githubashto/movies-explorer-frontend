@@ -8,11 +8,11 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function Main(props) {
-  const {loggedIn, onMenuToggle} = props;
+  const {loggedIn} = props;
 
   return (
     <>
-    <Header loggedIn={loggedIn} onMenuToggle={onMenuToggle}/>
+    <Header loggedIn={loggedIn}/>
 
     <main>
       <Promo />

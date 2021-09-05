@@ -24,7 +24,6 @@
   color: #fff;
   display: flex;
   align-items: center;
-  z-index: 1;
 }
 
 .nav__link:hover {
@@ -138,6 +137,10 @@
 }
 
 /* cross */
+.nav__check:checked ~ .nav__toggle {
+  position: fixed;
+}
+
 .nav__check:checked ~ .nav__toggle span {
   transform: rotate(45deg);
 }

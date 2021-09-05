@@ -15,7 +15,7 @@ function Navigation(props) {
       {loggedIn
         ? <>
           <input id="toggle" className="nav__check" type="checkbox" />
-          <label className="nav__toggle" for="toggle" onClick={onMenuToggle}>
+          <label className="nav__toggle" htmlFor="toggle" onClick={onMenuToggle}>
             <span></span>
           </label>
           <div className="nav__right nav__right_layout_vertical">
