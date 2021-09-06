@@ -61,9 +61,9 @@ function Register(props) {
                 required
           />
           <span id="form-password-error" className="account__error">{errors.password}</span>
-        <ApiErrors apiErrorText={apiErrorText} className="api-errors_place_account"/>
         </div>
         <div className="account__links">
+        <ApiErrors apiErrorText={apiErrorText} className="account__error"/>
         <button className={`account__submit ${!isValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!isValid}>Зарегистрироваться</button>
         <p className="account__note">Уже зарегистрированы? <Link to="/signin" className="account__switch">Войти</Link></p>
         </div>

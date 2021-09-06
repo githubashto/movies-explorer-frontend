@@ -62,10 +62,6 @@
   padding: 0;
   border: 0;
   cursor: pointer;
-  background: transparent;
-}
-
-.card__unlike:hover {
   background: #313131 url(../../images/delete.svg) no-repeat center;
 }
 

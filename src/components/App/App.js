@@ -12,24 +12,25 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import NotFound from '../NotFound/NotFound';
 import moviesApi from '../../utils/MoviesApi';
 import mainApi from '../../utils/MainApi';
-import ErrorPopup from '../ErrorPopup/ErrorPopup';
+import SuccessPopup from '../SuccessPopup/SuccessPopup';
+import {SHORT_DURATION} from '../../utils/constants';
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState();
   const [currentUser, setCurrentUser] = React.useState({});
   const [movies, setMovies] = React.useState([]);
   const [savedMovies, setSavedMovies] = React.useState([]);
-  const [isErrorPopupOpen, setErrorPopupOpen] = React.useState(false);
+  const [isPopupOpen, setPopupOpen] = React.useState(false);
   const [apiErrorText, setApiErrorText] = React.useState('');
   const history = useHistory();
 
   const closePopup = () => {
-    setErrorPopupOpen(false);
+    setPopupOpen(false);
   }
 
   function handleUpdateUser(data) {
     mainApi.patchMe(data)
       .then(result => {
+        setPopupOpen(true);
         setCurrentUser(result);
       })
       .catch(err => setApiErrorText(err.message));
@@ -38,11 +39,9 @@ function App() {
   function handleCardLike(card) {
     mainApi.postMovie(card)
       .then(res => {
-        mainApi.getMovies()
-        .then((res) => {
-          setSavedMovies(res);
-        })
-        .catch(err => console.log(err.message));
+        let newSavedMovies = [...savedMovies];
+        newSavedMovies.push(res);
+        setSavedMovies(newSavedMovies);
       })
     .catch(err => console.log(err.message));
   }
@@ -50,27 +49,21 @@ function App() {
   function handleCardDelete(cardId) {
     mainApi.deleteMovie(cardId)
       .then(res => {
-        mainApi.getMovies()
-          .then((res) => {
-          setSavedMovies(res);
-      })
-      .catch(err => console.log(err.message));
+        const deletedCardIndex = savedMovies.findIndex(card => card._id === cardId);
+        let newSavedMovies = [...savedMovies];
+        newSavedMovies.splice(deletedCardIndex, 1);
+        setSavedMovies(newSavedMovies);
       })
      .catch(err => console.log(err.message))
   }
 
   function handleUnlike(movieId) {
-    let cardId = savedMovies.find(card => card.movieId === movieId)._id
-
-    mainApi.deleteMovie(cardId)
-      .then(res => {
-        mainApi.getMovies()
-          .then((res) => {
-          setSavedMovies(res);
-      })
-      .catch(err => console.log(err.message));
-      })
-     .catch(err => console.log(err.message))
+    console.log(movieId);
+    if (savedMovies.length > 0) {
+      let cardId = savedMovies.find(card => card.movieId === movieId)._id;
+      console.log(cardId);
+      handleCardDelete(cardId);
+    }
   }
 
   function getMovies() {
@@ -87,7 +80,7 @@ function App() {
   function handleRegister(data) {
     return mainApi.signUp(data)
       .then(result => {
-        history.push('/movies');
+        handleLogin({email: result.email, password: data.password});
         return;
       })
 
@@ -98,20 +91,20 @@ function App() {
     return mainApi.signIn(data)
       .then(result => {
         localStorage.setItem('jwt', result.token);
+      })
+      .then(() => {
         mainApi.getMe()
           .then(result => {
-            setLoggedIn(true);
             setCurrentUser(result);
           })
-      })
-      .finally(history.push('/movies'))
-
+          .finally(history.push('./movies'))
+          .catch(err => console.log(err.message))
+        })
       .catch(err => setApiErrorText(err.message));
   }
 
   function handleSignOut() {
     localStorage.removeItem('jwt');
-    setLoggedIn(false);
     setCurrentUser({});
     setSavedMovies([]);
     history.push('/signin');
@@ -122,10 +115,12 @@ function App() {
     if (jwt) {
       mainApi.getMe()
         .then(result => {
-          setLoggedIn(true);
           setCurrentUser(result);
         })
-        .catch(err => console.log(err.message))
+        .catch(err => {
+          console.log(err.message);
+          history.push('/signin');
+        })
 
       mainApi.getMovies()
         .then((res) => {
@@ -161,8 +156,8 @@ function App() {
 
   function filterCardsByDuration(cards, isShort) {
     const results = isShort
-      ? cards.filter(card => card.duration <= 40)
-      : cards.filter(card => card.duration > 40);
+      ? cards.filter(card => card.duration <= SHORT_DURATION)
+      : cards.filter(card => card.duration > SHORT_DURATION);
     return results;
   }
 
@@ -186,7 +181,6 @@ function App() {
 
         <ProtectedRoute
           path="/movies"
-          loggedIn={loggedIn}
           component={Movies}
           movies={movies}
           savedMovies={savedMovies}
@@ -198,7 +192,6 @@ function App() {
 
         <ProtectedRoute
           path="/saved-movies"
-          loggedIn={loggedIn}
           component={SavedMovies}
           savedMovies={savedMovies}
           onSearch={filterCardsByQuery}
@@ -208,7 +201,6 @@ function App() {
 
         <ProtectedRoute
           path="/profile"
-          loggedIn={loggedIn}
           component={Profile}
           onSignOut={handleSignOut}
           onUpdateUser={handleUpdateUser}
@@ -216,7 +208,7 @@ function App() {
         />
 
         <Route exact path="/">
-          <Main loggedIn={loggedIn}/>
+          <Main/>
         </Route>
 
         <Route path="">
@@ -227,7 +219,7 @@ function App() {
 
       </CurrentUserContext.Provider>
 
-    <ErrorPopup onClose={closePopup} isOpen={isErrorPopupOpen}/>
+    <SuccessPopup onClose={closePopup} isOpen={isPopupOpen}/>
     </>
   );
 }

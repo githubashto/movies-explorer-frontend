@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function SavedMovies(props) {
-  const {loggedIn, savedMovies, onSearch, onFilter, onCardDelete} = props;
+  const { savedMovies, onSearch, onFilter, onCardDelete } = props;
   const [searchQuery, setSearchQuery] = React.useState('');
   const [searchResults, setSearchResults] = React.useState(savedMovies);
   const [isShort, setShort] = React.useState(false);
@@ -26,23 +26,24 @@ function SavedMovies(props) {
       setSearchResults(results);
     }
     getResults();
-  }, [searchQuery]);
+  }, [searchQuery, savedMovies]);
 
   React.useEffect(() => {
     const results = onFilter(searchResults, isShort);
     setFilteredResults(results);
-  }, [searchResults, isShort]);
+  }, [searchResults, isShort, savedMovies]);
 
   return (
     <>
-    <Header loggedIn={loggedIn}/>
+    <Header/>
 
     <main>
       <section className="saved-movies section">
         <SearchForm onSearch={handleSearchQuery} isShort={isShort} onShortClick={handleShortClick}/>
         <MoviesCardList savedAppearance={true}
              cards={filteredResults}
-             onCardDelete={onCardDelete} />
+             onCardDelete={onCardDelete}
+             savedMovies={savedMovies} />
       </section>
     </main>
 

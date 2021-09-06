@@ -6,7 +6,7 @@ import ApiErrors from '../ApiErrors/ApiErrors';
 import { useFormWithValidation } from '../FormValidator/FormValidator';
 
 function Profile(props) {
-  const { loggedIn, onSignOut, onUpdateUser, apiErrorText } = props;
+  const { onSignOut, onUpdateUser, apiErrorText } = props;
   const currentUser = React.useContext(CurrentUserContext);
 
   const { values, setValues, handleChange, errors, isValid, resetForm } = useFormWithValidation({});
@@ -23,7 +23,7 @@ function Profile(props) {
 
   return (
     <>
-    <Header loggedIn={loggedIn}/>
+    <Header/>
 
     <main>
       <section className="profile section">

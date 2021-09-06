@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function Movies(props) {
-  const { loggedIn, movies, onSearch, onFilter, onCardLike, savedMovies, onCardUnlike } = props;
+  const { movies, onSearch, onFilter, onCardLike, savedMovies, onCardUnlike } = props;
   const [isLoading, setIsLoading] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
   const [searchResults, setSearchResults] = React.useState([]);
@@ -39,7 +39,7 @@ function Movies(props) {
 
   return (
     <>
-    <Header loggedIn={loggedIn}/>
+    <Header/>
 
     <main>
       <section className="movies section">

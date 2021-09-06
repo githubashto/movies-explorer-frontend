@@ -1,13 +1,14 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 const ProtectedRoute = ({ component: Component, ...props }) => {
-  const jwt = localStorage.getItem('jwt');
+  const currentUser = React.useContext(CurrentUserContext);
 
   return (
     <Route>
       {() =>
-        jwt ? <Component {...props} /> : <Redirect to="./" />
+        currentUser.email ? <Component {...props} /> : <Redirect to="./" />
       }
     </Route>
   );

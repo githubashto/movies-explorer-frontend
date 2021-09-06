@@ -1,3 +1,5 @@
+import {API_URL} from './constants';
+
 class MainApi {
   constructor({baseUrl, token}) {
       this._address = baseUrl;
@@ -101,7 +103,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: 'https://api.urlag.nomoredomains.club',
+  baseUrl: API_URL,
   token: `Bearer ${localStorage.getItem('jwt')}`
 });
 

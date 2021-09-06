@@ -2,8 +2,7 @@ import './Header.css';
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
 
-function Header(props) {
-  const {loggedIn} = props;
+function Header() {
   const [overlay, setOverlay] = React.useState(false);
 
   function handleMenuToggle() {
@@ -16,7 +15,7 @@ function Header(props) {
 
   return (
     <header className="header block">
-      <Navigation loggedIn={loggedIn} onMenuToggle={handleMenuToggle}/>
+      <Navigation onMenuToggle={handleMenuToggle}/>
       <div className={overlay ? 'overlay' : ''}/>
     </header>
   );

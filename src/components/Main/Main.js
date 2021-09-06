@@ -7,12 +7,11 @@ import AboutMe from '../AboutMe/AboutMe';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-function Main(props) {
-  const {loggedIn} = props;
+function Main() {
 
   return (
     <>
-    <Header loggedIn={loggedIn}/>
+    <Header/>
 
     <main>
       <Promo />
