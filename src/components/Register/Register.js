@@ -1,47 +1,20 @@
 import './Register.css';
 import React from 'react';
 import logo from '../../images/logo.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ApiErrors from '../ApiErrors/ApiErrors';
+import { useFormWithValidation } from '../FormValidator/FormValidator';
 
-function Register() {
-  const [nameInput, setNameInput] = React.useState('');
-  const [emailInput, setEmailInput] = React.useState('');
-  const [passwordInput, setPasswordInput] = React.useState('');
-  const [nameValid, setNameValid] = React.useState(false);
-  const [emailValid, setEmailValid] = React.useState(false);
-  const [passwordValid, setPasswordValid] = React.useState(false);
-  const [formValid, setFormValid] = React.useState(false);
-  const [errName, setErrName] = React.useState('none');
-  const [submitted, setSubmitted] = React.useState(false);
+function Register(props) {
+  const {onRegister, apiErrorText} = props;
 
-  const nameInputElement = React.useRef();
-  const emailInputElement = React.useRef();
-  const passwordInputElement = React.useRef();
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({});
 
-  function handleNameInput(e) {
-    setNameInput(e.target.value);
-    setNameValid(nameInputElement.current.validity.valid);
-    setFormValid(nameValid && emailValid && passwordValid);
-  }
-
-  function handleEmailInput(e) {
-    setEmailInput(e.target.value);
-    setEmailValid(emailInputElement.current.validity.valid);
-    setFormValid(nameValid && passwordValid && emailValid);
-  }
-
-  function handlePasswordInput(e) {
-    setPasswordInput(e.target.value);
-    setPasswordValid(passwordInputElement.current.validity.valid);
-    setFormValid(nameValid && passwordValid && emailValid);
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setErrName('');
-    setFormValid(false);
-    setSubmitted(true);
+    onRegister(values);
+    resetForm();
   }
 
   return (
@@ -53,50 +26,46 @@ function Register() {
           <img src={logo} alt="Movies Explorer" className="logo" />
         </NavLink>
         <h1 className="account__title">Добро пожаловать!</h1>
-        <label className="account__label" for="form-name">Имя</label>
+        <label className="account__label" htmlFor="form-name">Имя</label>
         <input type="text"
-               name="name"
-               id="form-name"
-               minLength="2"
-               maxLength="40"
-               className="account__input"
-               value={nameInput}
-               placeholder="Имя"
-               onChange={handleNameInput}
-               required
-               ref = {nameInputElement}
+                name="name"
+                id="form-name"
+                minLength="2"
+                maxLength="30"
+                className="account__input"
+                value={values.name || ''}
+                placeholder="Имя"
+                onChange={handleChange}
+                required
           />
-          <label className="account__label" for="form-email">E-mail</label>
-          <input type="text"
+        <span id="form-name-error" className="account__error">{errors.name}</span>
+        <label className="account__label" htmlFor="form-email">E-mail</label>
+        <input type="text"
                 name="email"
                 id="form-email"
-                minLength="2"
-                maxLength="40"
                 className="account__input"
-                value={emailInput}
+                value={values.email || ''}
                 placeholder="Почта"
-                onChange={handleEmailInput}
+                onChange={handleChange}
                 required
-                ref = {emailInputElement}
           />
-          <label className="account__label" for="form-password">Пароль</label>
-          <input type="password"
-                name="name"
+        <span id="form-email-error" className="account__error">{errors.email}</span>
+        <label className="account__label" htmlFor="form-password">Пароль</label>
+        <input type="password"
+                name="password"
                 id="form-password"
-                minLength="2"
-                maxLength="40"
                 className="account__input"
-                value={passwordInput}
+                value={values.password || ''}
                 placeholder="Пароль"
-                onChange={handlePasswordInput}
+                onChange={handleChange}
                 required
-                ref = {passwordInputElement}
           />
-        {submitted && <ApiErrors errName={errName} className="api-errors_place_account"/>}
+          <span id="form-password-error" className="account__error">{errors.password}</span>
         </div>
         <div className="account__links">
-        <button className={`account__submit ${!formValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!formValid}>Зарегистрироваться</button>
-        <p className="account__note">Уже зарегистрированы? <NavLink to="/signin" className="account__switch">Войти</NavLink></p>
+        <ApiErrors apiErrorText={apiErrorText} className="account__error"/>
+        <button className={`account__submit ${!isValid ? 'account__submit_inactive' : ''}`} type="submit" disabled={!isValid}>Зарегистрироваться</button>
+        <p className="account__note">Уже зарегистрированы? <Link to="/signin" className="account__switch">Войти</Link></p>
         </div>
       </form>
       </section>

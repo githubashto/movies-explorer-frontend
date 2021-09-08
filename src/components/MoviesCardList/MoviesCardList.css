@@ -2,11 +2,22 @@
   width: 100%;
 }
 
+.cards__no {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 10px auto 0;
+  color: #fff;
+  text-align: center;
+}
+
 .cards__container {
   margin: 0px auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   grid-auto-rows: minmax(223px, 1fr);
+  grid-template-rows: auto;
   gap: 38px 20px;
   padding: 70px 0 0;
 }
@@ -30,6 +41,10 @@
   justify-content: center;
   text-align: center;
   border-radius: 5px;
+}
+
+.cards__load:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 1024px) {

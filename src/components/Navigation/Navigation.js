@@ -3,19 +3,22 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import profile from '../../images/profile.svg';
 import logo from '../../images/logo.svg';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function Navigation(props) {
-  const { loggedIn, onMenuToggle } = props;
+  const { onMenuToggle } = props;
 
   return (
+    <CurrentUserContext.Consumer>
+    {user => (
     <nav className="nav section__ultrawide-lmnt">
       <NavLink to="/" className="nav__link">
         <img src={logo} alt="Movies Explorer" className="logo" />
       </NavLink>
-      {loggedIn
+      {user.email
         ? <>
           <input id="toggle" className="nav__check" type="checkbox" />
-          <label className="nav__toggle" for="toggle" onClick={onMenuToggle}>
+          <label className="nav__toggle" htmlFor="toggle" onClick={onMenuToggle}>
             <span></span>
           </label>
           <div className="nav__right nav__right_layout_vertical">
@@ -33,6 +36,8 @@ function Navigation(props) {
           </>
       }
     </nav>
+    )}
+    </CurrentUserContext.Consumer>
   );
 }
 

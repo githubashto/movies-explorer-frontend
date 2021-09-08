@@ -2,21 +2,40 @@ import './SearchForm.css';
 import React from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm() {
-  const [isShortChecked, setShortChecked] = React.useState(true);
+function SearchForm(props) {
+  const {onSearch, isShort, onShortClick} = props;
+  const [searchInput, setSearchInput] = React.useState('');
+  const [errorText, setErrorText] = React.useState('');
 
-  const handleShortClick = (event) => {
-    setShortChecked({name: event.target.checked});
+  function handleSearchInput(e) {
+    setSearchInput(e.target.value);
+    setErrorText('');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (! /\S/.test(searchInput)) {
+      setErrorText('Нужно ввести ключевое слово');
+    }
+    else onSearch(searchInput);
   }
 
   return (
-    <form className="search">
-      <div className="search__query-container">
-        <input type="search" className="search__query" placeholder="Фильм" required></input>
+    <div className="search">
+      <form className="search__query-container" onSubmit={handleSubmit}>
+        <input type="search"
+          className="search__query"
+          placeholder="Фильм"
+          required
+          onChange={handleSearchInput}
+          value={searchInput}
+        />
         <button type="submit" className="search__submit"></button>
-      </div>
-      <FilterCheckbox isChecked={isShortChecked} onChange={handleShortClick}/>
-    </form>
+      </form>
+      <p className="search__error-noquery">{errorText}</p>
+
+      <FilterCheckbox isChecked={isShort} onChange={onShortClick}/>
+    </div>
   );
 }
 

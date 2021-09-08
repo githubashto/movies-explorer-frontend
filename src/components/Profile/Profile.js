@@ -2,95 +2,70 @@ import './Profile.css';
 import React from 'react';
 import Header from '../Header/Header';
 import CurrentUserContext from '../../contexts/CurrentUserContext.js';
-import { useHistory } from "react-router-dom";
 import ApiErrors from '../ApiErrors/ApiErrors';
+import { useFormWithValidation } from '../FormValidator/FormValidator';
 
 function Profile(props) {
-  const {loggedIn, onMenuToggle} = props;
+  const { onSignOut, onUpdateUser, apiErrorText } = props;
   const currentUser = React.useContext(CurrentUserContext);
 
-  const [nameInput, setNameInput] = React.useState(currentUser.name);
-  const [emailInput, setEmailInput] = React.useState(currentUser.email);
-  const [editMode, setEditMode] = React.useState(false);
-  const [nameValid, setNameValid] = React.useState(true);
-  const [emailValid, setEmailValid] = React.useState(true);
-  const [formValid, setFormValid] = React.useState(false);
-  const [errName, setErrName] = React.useState('none');
-
-  const nameInputElement = React.useRef();
-  const emailInputElement = React.useRef();
-
-  const history = useHistory();
-
-  function handleNameInput(e) {
-    setNameInput(e.target.value);
-    setNameValid(nameInputElement.current.validity.valid);
-    setFormValid(nameValid && emailValid);
-  }
-
-  function handleEmailInput(e) {
-    setEmailInput(e.target.value);
-    setEmailValid(emailInputElement.current.validity.valid);
-    setFormValid(nameValid && emailValid);
-  }
+  const { values, setValues, handleChange, errors, isValid, resetForm } = useFormWithValidation({});
 
   function handleSubmit(e) {
     e.preventDefault();
-    setErrName('update-err');
-    setFormValid(false);
+    onUpdateUser(values);
+    resetForm();
   }
 
-  function handleEdit() {
-    setEditMode(true);
-    console.log(formValid);
-  }
-
-  function handleSignOut() {
-    history.push('/sign-in');
-  }
+  React.useEffect(() => {
+    setValues({name: currentUser.name, email: currentUser.email});
+  }, [currentUser.email, currentUser.name, setValues]);
 
   return (
     <>
-    <Header loggedIn={loggedIn} onMenuToggle={onMenuToggle}/>
+    <Header/>
 
     <main>
-      <form className="profile" name="profile" onSubmit={handleSubmit} noValidate>
-        <h1 className="profile__title">Привет, {currentUser.name}!</h1>
-        <div className="profile__input-line">
-          <label className="profile__label" for="form-name">Имя</label>
-          <input type="text"
+      <section className="profile section">
+      <form className="profile__form" name="profile" onSubmit={handleSubmit} noValidate>
+        <div className="profile__fields">
+          <h1 className="profile__title">Привет, {currentUser.name}!</h1>
+          <div className="profile__input-line">
+            <label className="profile__label" htmlFor="form-name">Имя</label>
+            <input type="text"
                  name="name"
                  id="form-name"
                  minLength="2"
                  maxLength="40"
                  className="profile__input"
-                 value={nameInput}
-                 onChange={handleNameInput}
+                 onChange={handleChange}
                  required
-                 disabled={!editMode}
-                 ref = {nameInputElement}
-            />
-        </div>
-        <div className="profile__input-line">
-          <label className="profile__label" for="form-email">Почта</label>
-          <input type="text"
+                 value={values.name || ''}
+              />
+          </div>
+          <span id="form-name-error" className="profile__error">{errors.name}</span>
+          <div className="profile__input-line">
+            <label className="profile__label" htmlFor="form-email">Почта</label>
+            <input type="text"
                  name="email"
                  id="form-email"
                  minLength="2"
                  maxLength="40"
                  className="profile__input"
-                 value={emailInput}
-                 onChange={handleEmailInput}
+                 onChange={handleChange}
                  required
-                 disabled={!editMode}
-                 ref = {emailInputElement}
+                 value={values.email || ''}
             />
+          </div>
+          <span id="form-email-error" className="profile__error">{errors.email}</span>
         </div>
-        {!editMode && <button className="profile__edit" onClick={handleEdit}>Редактировать</button>}
-        {!editMode && <button className="profile__signout" onClick={handleSignOut}>Выйти из аккаунта</button>}
-        {editMode && <ApiErrors errName={errName} className="api-errors_place_profile"/>}
-        {editMode && <button className={`profile__submit ${!formValid && 'profile__submit_inactive'}`} type="submit" disabled={!formValid}>Сохранить</button>}
+        <div className="profile__links">
+          <ApiErrors apiErrorText={apiErrorText} className="profile__error"/>
+          <button className={`profile__submit ${!isValid ? 'profile__submit_inactive' : ''}`} type="submit" disabled={!isValid}>Редактировать</button>
+          <button className="profile__signout" onClick={onSignOut}>Выйти из аккаунта</button>
+        </div>
       </form>
+      </section>
     </main>
     </>
   );
