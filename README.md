@@ -11,7 +11,8 @@ HTML5 (БЭМ), CSS (Flexbox, Grid), JavaScript, React.js.
 ### Инструкция по развёртыванию 
     $ git clone https://github.com/githubashto/movies-explorer-frontend.git
     npm run build
-    
+React 17.0.2.
+
 #### Демо
 https://urlag.nomoredomains.club
 IP: 84.252.130.250
